@@ -86,6 +86,8 @@ namespace Summative
                 taxpriceLabel.Text = $"{taxCalculation.ToString("C")}";
 
                 totalpriceLabel.Text = $"{totalPrice.ToString("C")}";
+
+                errorLabel.Text = "";
             }
             catch
             {
@@ -102,11 +104,18 @@ namespace Summative
 
         private void ChangeButton_Click(object sender, EventArgs e)
         {
-            tenderedNumber = Convert.ToInt16(tenderedBox.Text);
-            changeNumber = tenderedNumber - totalPrice;
-            
+            try {
+                tenderedNumber = Convert.ToInt16(tenderedBox.Text);
+                changeNumber = tenderedNumber - totalPrice;
 
-            changetotalLabel.Text = $"{changeNumber.ToString("C")}";
+
+                changetotalLabel.Text = $"{changeNumber.ToString("C")}";
+                errorLabel.Text = "";
+            }
+            catch
+            {
+                errorLabel.Text = "Please enter a valid number";
+            }
         }
 
         private void PrintButton_Click(object sender, EventArgs e)
