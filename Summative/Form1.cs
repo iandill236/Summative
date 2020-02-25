@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Media;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace Summative
 {
@@ -49,7 +43,7 @@ namespace Summative
             /// February 19 2020
             /// Cash Register
            
-            
+           
             
 
             try {
@@ -78,9 +72,11 @@ namespace Summative
                 {
                     drinkBox.Text = "0";
                 }
+               
+
 
                 /// makes the subtotal a currency value and displays the subtotal value
-               
+
                 subtotalpriceLabel.Text = $"{subTotal.ToString("C")}";
                 subtotalpriceLabel.ForeColor = Color.Orange;
 
@@ -99,7 +95,17 @@ namespace Summative
                
                 errorLabel.Text = "please enter a valid number";
             }
+            try
+            {
+                if (burgerBox.Text == "0" && fryBox.Text == "0" && drinkBox.Text == "0")
+                {
+                    errorLabel.Text = "Please Actually Order Something";
+                }
+            }
+            catch
+            {
 
+            }
           
 
                 
@@ -252,6 +258,7 @@ namespace Summative
             orderchangeLabel.Text = "";
             orderchangetotalLabel.Text = "";
             byeLabel.Text = "";
+            errorLabel.Text = "";
 
 
 
