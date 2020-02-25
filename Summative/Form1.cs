@@ -143,7 +143,7 @@ namespace Summative
                 if (Convert.ToInt16(tenderedBox.Text) < totalPrice)
                 {
                     errorLabel.Text = "Insufficient Funds";
-                    changetotalLabel = "";
+                    changetotalLabel.Text = "";
                 }
             }
             catch
