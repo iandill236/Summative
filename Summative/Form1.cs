@@ -20,7 +20,7 @@ namespace Summative
             
             InitializeComponent();
         }
-        double totalPrice;
+        
         double burgerNumber;
         double fryNumber;
         double drinkNumber;
@@ -31,7 +31,8 @@ namespace Summative
         double taxCalculation;
         double tenderedNumber;
         double changeNumber;
-   
+        public double totalPrice;
+
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             
@@ -119,6 +120,7 @@ namespace Summative
 
         private void ChangeButton_Click(object sender, EventArgs e)
         {
+           
             try {
                 /// calculates the change
                
@@ -135,6 +137,18 @@ namespace Summative
                 /// if an invalid value is inserted
                 
                 errorLabel.Text = "Please enter a valid number";
+            }
+            try
+            {
+                if (Convert.ToInt16(tenderedBox.Text) < totalPrice)
+                {
+                    errorLabel.Text = "Insufficient Funds";
+                    changetotalLabel = "";
+                }
+            }
+            catch
+            {
+
             }
         }
 
