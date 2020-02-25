@@ -64,6 +64,8 @@ namespace Summative
                 taxCalculation = tax * subTotal;
                 totalPrice = taxCalculation + subTotal;
 
+                /// makes it so the values reset to the default 0 if no value is present
+               
                 if (burgerBox.Text == null || burgerBox.Text == "")
                 {
                     burgerBox.Text = "0";
@@ -77,12 +79,14 @@ namespace Summative
                     drinkBox.Text = "0";
                 }
 
-
+                /// makes the subtotal a currency value and displays the subtotal value
+               
                 subtotalpriceLabel.Text = $"{subTotal.ToString("C")}";
                 subtotalpriceLabel.ForeColor = Color.Orange;
 
 
-
+                /// displays the tax value and the total value which is the subtotal plus the tax
+              
                 taxpriceLabel.Text = $"{taxCalculation.ToString("C")}";
 
                 totalpriceLabel.Text = $"{totalPrice.ToString("C")}";
@@ -91,6 +95,8 @@ namespace Summative
             }
             catch
             {
+                /// if no value or a letter or too high a value is inserted
+               
                 errorLabel.Text = "please enter a valid number";
             }
 
@@ -105,21 +111,28 @@ namespace Summative
         private void ChangeButton_Click(object sender, EventArgs e)
         {
             try {
+                /// calculates the change
+               
                 tenderedNumber = Convert.ToInt16(tenderedBox.Text);
                 changeNumber = tenderedNumber - totalPrice;
 
-
+                /// displays change and makes sure the error goes away
+                
                 changetotalLabel.Text = $"{changeNumber.ToString("C")}";
                 errorLabel.Text = "";
             }
             catch
             {
+                /// if an invalid value is inserted
+                
                 errorLabel.Text = "Please enter a valid number";
             }
         }
 
         private void PrintButton_Click(object sender, EventArgs e)
         {
+            /// receipt text displays everything at .5 second intervals
+           
             ordernumberLabel.Text = "Order Number 1";
 
             SoundPlayer num1 = new SoundPlayer(Properties.Resources.Receipt);
@@ -213,6 +226,8 @@ namespace Summative
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
+            /// fully resets everything allowing the customer to input a new order
+           
             burgerBox.Text = "0";
             fryBox.Text = "0";
             drinkBox.Text = "0";
