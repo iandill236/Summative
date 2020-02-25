@@ -100,6 +100,9 @@ namespace Summative
                 if (burgerBox.Text == "0" && fryBox.Text == "0" && drinkBox.Text == "0")
                 {
                     errorLabel.Text = "Please Actually Order Something";
+                    subtotalpriceLabel.Text = "";
+                    taxpriceLabel.Text = "";
+                    totalpriceLabel.Text = "";
                 }
             }
             catch
