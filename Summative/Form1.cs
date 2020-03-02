@@ -1,4 +1,7 @@
-﻿using System;
+﻿/// Ian Dill
+/// February 19 2020
+/// Cash Register
+using System;
 using System.Drawing;
 using System.Media;
 using System.Threading;
@@ -9,10 +12,10 @@ namespace Summative
 
     public partial class Form1 : Form
     {
-        const double burgerPrice = 1.00;
-        const double fryPrice = 0.50;
-        const double drinkPrice = 1.25;
-        const double tax = 0.13;
+        const double BURGER_PRICE = 1.00;
+        const double FRY_PRICE = 0.50;
+        const double DRINK_PRICE = 1.25;
+        const double TAX = 0.13;
         
 
         public Form1()
@@ -40,9 +43,7 @@ namespace Summative
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            /// Ian Dill
-            /// February 19 2020
-            /// Cash Register
+            
            
            
             
@@ -52,11 +53,11 @@ namespace Summative
                 burgerNumber = Convert.ToInt16(burgerBox.Text);
                 fryNumber = Convert.ToInt16(fryBox.Text);
                 drinkNumber = Convert.ToInt16(drinkBox.Text);
-                burgersubTotal = burgerNumber * burgerPrice;
-                frysubTotal = fryNumber * fryPrice;
-                drinksubTotal = drinkNumber * drinkPrice;
+                burgersubTotal = burgerNumber * BURGER_PRICE;
+                frysubTotal = fryNumber * FRY_PRICE;
+                drinksubTotal = drinkNumber * DRINK_PRICE;
                 subTotal = burgersubTotal + frysubTotal + drinksubTotal;
-                taxCalculation = tax * subTotal;
+                taxCalculation = TAX * subTotal;
                 totalPrice = taxCalculation + subTotal;
 
                 /// makes it so the values reset to the default 0 if no value is present
@@ -85,9 +86,7 @@ namespace Summative
                 /// displays the tax value and the total value which is the subtotal plus the tax
               
                 taxpriceLabel.Text = $"{taxCalculation.ToString("C")}";
-
                 totalpriceLabel.Text = $"{totalPrice.ToString("C")}";
-
                 errorLabel.Text = "";
             }
             catch
@@ -110,12 +109,7 @@ namespace Summative
             {
 
             }
-          
-
-                
-
-
-
+      
             }
 
         private void ChangeButton_Click(object sender, EventArgs e)
@@ -165,7 +159,6 @@ namespace Summative
             Thread.Sleep(500);
 
             dateLabel.Text = "February 25 2020";
-
             SoundPlayer num2 = new SoundPlayer(Properties.Resources.Receipt);
             num2.Play();
 
@@ -173,7 +166,6 @@ namespace Summative
             Thread.Sleep(500);
 
             orderburgerLabel.Text = $"Hamburgers    x{burgerNumber} @ {burgersubTotal.ToString("C")} ";
-
             SoundPlayer num3 = new SoundPlayer(Properties.Resources.Receipt);
             num3.Play();
 
@@ -181,7 +173,6 @@ namespace Summative
             Thread.Sleep(500);
 
             orderfryLabel.Text = $"Fries    x{fryNumber} @ {frysubTotal.ToString("C")}";
-
             SoundPlayer num4 = new SoundPlayer(Properties.Resources.Receipt);
             num4.Play();
 
@@ -189,7 +180,6 @@ namespace Summative
             Thread.Sleep(500);
 
             orderdrinkLabel.Text = $"Drinks    x{drinkNumber} @ {drinksubTotal.ToString("C")}";
-
             SoundPlayer num5 = new SoundPlayer(Properties.Resources.Receipt);
             num5.Play();
 
@@ -198,7 +188,6 @@ namespace Summative
 
             ordersubtotalLabel.Text = "Subtotal";
             ordersubtotalpriceLabel.Text = $"{subTotal.ToString("C")}";
-
             SoundPlayer num6 = new SoundPlayer(Properties.Resources.Receipt);
             num6.Play();
 
@@ -207,7 +196,6 @@ namespace Summative
 
             ordertaxLabel.Text = "Tax";
             ordertaxpriceLabel.Text = $"{taxCalculation.ToString("C")}";
-
             SoundPlayer num7 = new SoundPlayer(Properties.Resources.Receipt);
             num7.Play();
 
@@ -276,6 +264,17 @@ namespace Summative
             orderchangetotalLabel.Text = "";
             byeLabel.Text = "";
             errorLabel.Text = "";
+            frysubTotal = 0;
+            burgersubTotal = 0;
+            drinksubTotal = 0;
+            burgerNumber = 0;
+            fryNumber = 0;
+            drinkNumber = 0;
+            tenderedNumber = 0;
+            subTotal = 0;
+            taxCalculation = 0;
+            totalPrice = 0;
+            changeNumber = 0;
 
 
 

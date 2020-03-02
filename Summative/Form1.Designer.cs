@@ -403,7 +403,6 @@
             this.changeButton.Size = new System.Drawing.Size(173, 31);
             this.changeButton.TabIndex = 34;
             this.changeButton.Text = "Calculate Change";
-            this.changeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.changeButton.UseVisualStyleBackColor = false;
             this.changeButton.Click += new System.EventHandler(this.ChangeButton_Click);
             // 
